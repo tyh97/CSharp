@@ -25,6 +25,7 @@ HAVING d.department_name in ('IT'，'Sales');
 #####无优化建议
 
 - 自行设计语句
+#####还是查询出departmentName为IT，Sales的部门总人数和平均工资
 ```sql
 SELECT d.department_name，count(e.job_id)as "部门总人数"，
 avg(e.salary)as "平均工资"
@@ -33,5 +34,6 @@ WHERE d.department_id = e.department_id
 and d.department_name = 'IT' or d.department_name = 'Sales'
 GROUP BY department_name
 ```
-#####在进行连接的时候会造成开销很大的笛卡尔积操作，可以进一步优化。
+![图片](./select_3.png)
+#####优化指导：在进行连接的时候会造成开销很大的笛卡尔积操作，可以进一步优化。
 
