@@ -8,13 +8,13 @@
 CREATE ROLE dztyh_role;
 ```
 
-![图片](./role2.png)
+![图片](./picture/role2.png)
 
 ```sql
  GRANT connect,resource,CREATE VIEW TO dztyh_role;
 ```
 
-![图片](./role4.png)
+![图片](./picture/role4.png)
 
 - 创建用户
 
@@ -22,7 +22,7 @@ CREATE ROLE dztyh_role;
 CREATE USER dztyh IDENTIFIED BY 123 DEFAULT TABLESPACE users TEMPORARY TABLESPACE temp;
 ```
 
-![图片](./user2.png)
+![图片](./picture/user2.png)
 
 - 分配表空间
 
@@ -30,7 +30,7 @@ CREATE USER dztyh IDENTIFIED BY 123 DEFAULT TABLESPACE users TEMPORARY TABLESPAC
 ALTER USER dztyh QUOTA 50M ON users;
 ```
 
-![图片](./user4.png)
+![图片](./picture/user4.png)
 
 - 分配角色
 
@@ -38,7 +38,7 @@ ALTER USER dztyh QUOTA 50M ON users;
  GRANT dztyh_role TO dztyh;
 ```
 
-![图片](./user6.png)
+![图片](./picture/user6.png)
 
 - 创建表和视图并插入数据
 ```sql
@@ -48,13 +48,13 @@ INSERT INTO mytable(id,name)VALUES(1,'zhang');
 INSERT INTO mytable(id,name)VALUES (2,'wang');
 CREATE VIEW myview AS SELECT name FROM mytable;
 ```
-![图片](./table1.png)
+![图片](./picture/table1.png)
 
 - 授权其他用户
 ```sql
 SELECT * FROM myview;
 ```
-![图片](./table2.png)
+![图片](./picture/table2.png)
 
 - 其他用户查询
-![图片](./select1.png)
+![图片](./picture/select1.png)
