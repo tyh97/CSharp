@@ -2,6 +2,7 @@
 
 ## oracle用户名：dztyh
 
+## 用户创建及角色创建
 - 创建角色
 
 ```sql
@@ -24,6 +25,8 @@ CREATE USER dztyh IDENTIFIED BY 123 DEFAULT TABLESPACE users TEMPORARY TABLESPAC
 
 ![图片](./picture/user2.png)
 
+## 分配表空间及角色
+
 - 分配表空间
 
 ```sql
@@ -39,6 +42,8 @@ ALTER USER dztyh QUOTA 50M ON users;
 ```
 
 ![图片](./picture/user6.png)
+
+## 创建表并分享给其他用户进行查询
 
 - 创建表和视图并插入数据
 ```sql
