@@ -26,16 +26,15 @@ create or replace PACKAGE BODY MyPack IS
       LEFTSPACE:=' ';
       --使用游标
       for v in
-      (SELECT LEVEL,EMPLOYEE_ID,NAME,MANAGER_ID FROM employees
+      (SELECT LEVEL,EMPLOYEE_ID,NAME,MANAGER_ID,SALARY FROM employees
       START WITH EMPLOYEE_ID = V_EMPLOYEE_ID
       CONNECT BY PRIOR EMPLOYEE_ID = MANAGER_ID)
       LOOP
         DBMS_OUTPUT.PUT_LINE(LPAD(LEFTSPACE,(V.LEVEL-1)*4,' ')||
-                             V.EMPLOYEE_ID||' '||v.NAME);
+                             V.EMPLOYEE_ID||' '||v.NAME||' '||v.SALARY);
       END LOOP;
     END;
-END MyPack;
-
+END MyPack;/
 ```
 #### 执行结果
 ![图片](./picture/1.png)
